@@ -28,8 +28,10 @@ jobs:
           node-version: "${{ env.node_version }}"
       - name: Install dependencies
         run: yarn install --frozen-lockfile
+      - name: Install required system dependencies
+        run: sudo apt-get update && sudo apt-get install -y libasound2 libffi8 libx264-dev
       - name: Install Playwright Browsers
-        run: yarn playwright install --with-deps
+        run: yarn playwright install
       - name: Run codegen
         run: yarn run codegen
       - name: Run Playwright tests
