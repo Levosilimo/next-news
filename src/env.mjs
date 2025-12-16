@@ -7,16 +7,16 @@ export const env = createEnv({
       .enum(["true", "false"])
       .optional()
       .transform((value) => value === "true"),
-    HYGRAPH_WEBOOK_SECRET: z.string(),
-    GA_MEASUREMENT_ID: z.string(),
-    GA_PROPERTY_ID: z.string(),
-    GA_BASE64_SERVICE_ACCOUNT: z.string(),
+    HYGRAPH_WEBOOK_SECRET: z.string().optional(),
+    GA_MEASUREMENT_ID: z.string().optional(),
+    GA_PROPERTY_ID: z.string().optional(),
+    GA_BASE64_SERVICE_ACCOUNT: z.string().optional(),
   },
   client: {
-    NEXT_PUBLIC_ALGOLIA_API_ID: z.string(),
-    NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY: z.string(),
-    NEXT_PUBLIC_HYGRAPH_CONTENT_API_URL: z.string(),
-    NEXT_PUBLIC_SITE_URL: z.string(),
+    NEXT_PUBLIC_ALGOLIA_API_ID: z.string().optional(),
+    NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY: z.string().optional(),
+    NEXT_PUBLIC_HYGRAPH_CONTENT_API_URL: z.string().optional(),
+    NEXT_PUBLIC_SITE_URL: z.string().optional(),
   },
   runtimeEnv: {
     ANALYZE: process.env.ANALYZE,
