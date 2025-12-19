@@ -1,6 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable jsx-a11y/alt-text */
-import { ImageResponse, NextRequest, NextResponse } from "next/server"
+import { NextRequest, NextResponse } from "next/server"
+import React from "react"
+
+declare const ImageResponseConstructor: new (jsx: React.ReactElement, options?: { width?: number; height?: number }) => Response
 
 export const runtime = "edge"
 
@@ -14,7 +17,7 @@ export async function GET(request: NextRequest) {
   if (!isHygraphImage)
     return NextResponse.json({ msg: "An image from an unknown source has been provided" }, { status: 415 })
 
-  return new ImageResponse(
+  return new ImageResponseConstructor(
     <div
       style={{
         display: "flex",
