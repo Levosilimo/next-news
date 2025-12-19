@@ -10,6 +10,11 @@ module.exports = {
     "plugin:storybook/recommended",
     "plugin:tailwindcss/recommended",
   ],
+  settings: {
+    tailwindcss: {
+      config: "./tailwind.config.js",
+    },
+  },
   parserOptions: {
     babelOptions: {
       presets: [require.resolve("next/babel")],
